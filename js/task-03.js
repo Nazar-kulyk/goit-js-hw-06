@@ -13,22 +13,24 @@ const images = [
   },
 ];
 
-const list = document.querySelector(".gallery");
+const gallery = document.querySelector(".gallery");
 
 const markup = images
-  .map(
-    (image) =>
-      `<li><img class="picture" src=${image.url} width = '400' alt='${image.alt}'></img></li>`
-  )
+  .map((image) => {
+    return `<li><img class="picture" src="${image.url}" alt="${image.alt}" /></li>`;
+  })
   .join("");
 
-list.insertAdjacentHTML("beforeend", markup);
-// const img = document.createElement('img')
+gallery.innerHTML = markup;
 
 const pictures = document.querySelectorAll(".picture");
 
-list.style.display = "flex";
-list.style.flexWrap = "column-reverse";
-list.style.listStyle = "none";
-list.style.gap = "20px";
-list.style.justifyContent = "center";
+pictures.forEach((picture) => {
+  picture.style.height = "320px";
+  picture.style.width = "auto";
+});
+
+gallery.style.display = "flex";
+gallery.style.listStyle = "none";
+gallery.style.gap = "20px";
+gallery.style.justifyContent = "center";
