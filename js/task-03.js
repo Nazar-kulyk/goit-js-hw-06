@@ -21,7 +21,7 @@ const markup = images
   })
   .join("");
 
-gallery.innerHTML = markup;
+gallery.insertAdjacentHTML("beforeend", markup);
 
 const pictures = document.querySelectorAll(".picture");
 
